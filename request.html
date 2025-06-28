@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request - Ashcol Airconditioning Corporation</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Submit your service request for air conditioning installation, repair, or maintenance. Get a unique ticket number for tracking.">
+    <meta name="keywords" content="service request, AC service, ticket system, air conditioning repair">
+    <meta name="author" content="Ashcol Airconditioning Corporation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="ash.JPG">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .request-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .request-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .request-header h1 {
+            color: #39B54A;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .request-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .request-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #39B54A;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .submit-btn {
+            background: #39B54A;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background: #2d8f3a;
+        }
+        
+        .ticket-confirmation {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+        
+        .ticket-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #39B54A;
+            margin: 1rem 0;
+        }
+        
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #5a6268;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .request-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="ash.JPG" alt="Ashcol Airconditioning Corporation Logo" class="logo-img">
+                <span class="logo-text">Ashcol Airconditioning</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="request-container">
+        <div class="request-header">
+            <h1><i class="fas fa-ticket-alt"></i> Service Request</h1>
+            <p>Submit your service request and get a unique ticket number for tracking</p>
+        </div>
+
+        <form id="serviceRequestForm" class="request-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input type="text" id="customerName" name="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number *</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="branch">Select Branch *</label>
+                    <select id="branch" name="branch" required>
+                        <option value="">Select Branch</option>
+                        <option value="Pampanga">Pampanga</option>
+                        <option value="Taguig">Taguig</option>
+                        <option value="Bulacan">Bulacan</option>
+                        <option value="Valenzuela">Valenzuela</option>
+                        <option value="Rodriguez, Rizal">Rodriguez, Rizal</option>
+                        <option value="Laguna">Laguna</option>
+                        <option value="General Trias, Cavite">General Trias, Cavite</option>
+                        <option value="Sta. Rosa">Sta. Rosa</option>
+                        <option value="Tagaytay">Tagaytay</option>
+                        <option value="Dasmariñas, Cavite">Dasmariñas, Cavite</option>
+                        <option value="Candelaria, Quezon Province">Candelaria, Quezon Province</option>
+                        <option value="Batangas">Batangas</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="serviceType">Service Type *</label>
+                    <select id="serviceType" name="serviceType" required>
+                        <option value="">Select Service Type</option>
+                        <option value="installation">Installation</option>
+                        <option value="repair">Repair</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">Urgency Level</label>
+                    <select id="urgency" name="urgency">
+                        <option value="Normal">Normal</option>
+                        <option value="High">High Priority</option>
+                        <option value="Emergency">Emergency (24/7)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="preferredDate">Preferred Date *</label>
+                    <input type="date" id="preferredDate" name="preferredDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="preferredTime">Preferred Time *</label>
+                    <select id="preferredTime" name="preferredTime" required>
+                        <option value="">Select Time</option>
+                        <option value="Morning (8AM-12PM)">Morning (8AM-12PM)</option>
+                        <option value="Afternoon (12PM-4PM)">Afternoon (12PM-4PM)</option>
+                        <option value="Evening (4PM-8PM)">Evening (4PM-8PM)</option>
+                        <option value="Flexible">Flexible</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="address">Service Address *</label>
+                <textarea id="address" name="address" rows="3" placeholder="Please provide your complete address" required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="description">Service Description *</label>
+                <textarea id="description" name="description" rows="4" placeholder="Please describe your service needs, issues, or specific requirements" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> Submit Request
+            </button>
+        </form>
+
+        <div id="ticketConfirmation" class="ticket-confirmation">
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: #39B54A; margin-bottom: 1rem;"></i>
+            <h2>Request Submitted Successfully!</h2>
+            <p>Your service request has been received and is being processed.</p>
+            <div class="ticket-number" id="ticketNumber"></div>
+            <p>Please save this ticket number for tracking your request.</p>
+            <p>You will receive a confirmation via SMS/Email shortly.</p>
+            <div class="confirmation-buttons">
+                <a href="index.html" class="back-btn">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Clear all localStorage data for contact form and service requests
+        function clearAllStorage() {
+            // Clear contact messages
+            localStorage.removeItem('contactMessages');
+            
+            // Clear service tickets
+            localStorage.removeItem('serviceTickets');
+            
+            // Clear any other related data
+            localStorage.removeItem('loggedInUser');
+            localStorage.removeItem('ashcol_admin_logged_in');
+            localStorage.removeItem('ashcol_employee_logged_in');
+            localStorage.removeItem('ashcol_customers');
+            
+            console.log('All localStorage data cleared successfully!');
+        }
+
+        // Clear storage when page loads
+        clearAllStorage();
+
+        // Generate unique ticket number
+        function generateTicketNumber() {
+            const prefix = 'ASH';
+            const randomNum = Math.floor(Math.random() * 9000) + 1000; // 1000-9999
+            return `${prefix}${randomNum}`;
+        }
+
+        // Handle form submission
+        document.getElementById('serviceRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Generate ticket number
+            const ticketNumber = generateTicketNumber();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const requestData = {
+                ticketNumber: ticketNumber,
+                customerName: formData.get('customerName'),
+                contactNumber: formData.get('contactNumber'),
+                email: formData.get('email'),
+                branch: formData.get('branch'),
+                serviceType: formData.get('serviceType'),
+                preferredDate: formData.get('preferredDate'),
+                preferredTime: formData.get('preferredTime'),
+                address: formData.get('address'),
+                description: formData.get('description'),
+                urgency: formData.get('urgency'),
+                status: 'Pending',
+                timestamp: new Date().toISOString()
+            };
+
+            // Save to localStorage (in a real app, this would go to a database)
+            let tickets = JSON.parse(localStorage.getItem('serviceTickets') || '[]');
+            tickets.push(requestData);
+            localStorage.setItem('serviceTickets', JSON.stringify(tickets));
+
+            // Show confirmation
+            document.getElementById('ticketNumber').textContent = ticketNumber;
+            document.getElementById('serviceRequestForm').style.display = 'none';
+            document.getElementById('ticketConfirmation').style.display = 'block';
+
+            // Simulate SMS/Email confirmation
+            console.log('Sending confirmation to:', requestData.contactNumber, requestData.email);
+            
+            // In a real implementation, you would send SMS/Email here
+            // For now, we'll just log it
+            if (requestData.email) {
+                console.log(`Email confirmation sent to ${requestData.email} with ticket number ${ticketNumber}`);
+            }
+            if (requestData.contactNumber) {
+                console.log(`SMS confirmation sent to ${requestData.contactNumber} with ticket number ${ticketNumber}`);
+            }
+        });
+
+        // Set minimum date to today
+        document.getElementById('preferredDate').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html> 
