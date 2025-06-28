@@ -15,26 +15,6 @@ if (hamburger && navMenu) {
     }));
 }
 
-// Clear all localStorage data for contact form and service requests
-function clearAllStorage() {
-    // Clear contact messages
-    localStorage.removeItem('contactMessages');
-    
-    // Clear service tickets
-    localStorage.removeItem('serviceTickets');
-    
-    // Clear any other related data
-    localStorage.removeItem('loggedInUser');
-    localStorage.removeItem('ashcol_admin_logged_in');
-    localStorage.removeItem('ashcol_employee_logged_in');
-    localStorage.removeItem('ashcol_customers');
-    
-    console.log('All localStorage data cleared successfully!');
-}
-
-// Clear storage when page loads
-clearAllStorage();
-
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
